@@ -7,9 +7,12 @@
   "name": "server-nodejs",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
   "scripts": {
-    "test": "start"
+    "test": "start",
+    "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC"
