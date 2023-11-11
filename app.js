@@ -1,7 +1,12 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const port = 3000;
+const mongoose = require('mongoose');
 const userSchema = require('./Models/productSchema')
+
+mongoose.connect(process.env.CONNECTIONSTRING)
 
 //CRUD
 app.get('/',(req,res) => {
