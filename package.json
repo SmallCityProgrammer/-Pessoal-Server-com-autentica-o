@@ -1,10 +1,16 @@
 {
-  "description": "",
+  "description": "server com autenticação",
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^8.0.0"
   },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  }
+  "name": "server-nodejs",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "start"
+  },
+  "author": "",
+  "license": "ISC"
 }
