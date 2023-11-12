@@ -9,9 +9,11 @@ const Product = require('./Models/productSchema')
 mongoose.connect(process.env.CONNECTIONSTRING)
 app.use(express.json());
 
+app.set('view engine', 'ejs');
 
 //CRUD
 app.get('/',async (req,res) => {
+  res.render('index')
   const product = await Product.find();
   res.status(200).json(product)
 })
