@@ -4,24 +4,26 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const mongoose = require('mongoose');
-const userSchema = require('./Models/productSchema')
+const Product = require('./Models/productSchema')
 
 mongoose.connect(process.env.CONNECTIONSTRING)
+app.use(express.json());
+
 
 //CRUD
-app.get('/',(req,res) => {
-  res.send("Olá mundo")
+app.get('/',async (req,res) => {
+  const product = await Product.find();
+  res.status(200).json(product)
 })
 
-app.post('/', (req,res) => {
-  res.send(userSchema);
-  console.log('Funcionou!')
+app.get('/:id',async (req,res) => {
+  const product = await Product.findById(req.params.id);
+  res.status(200).json(product)
 })
 
-app.put('/:id', (req, res) => {
-})
-
-app.delete('/:id', (req) => {
+app.post('/', async (req,res) => {
+  const product = await Product.create(req.body);
+  res.status(200).json(product)
 })
 
 app.listen(port, () => {
