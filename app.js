@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 
 const express = require('express');
 const app = express();
@@ -8,15 +9,22 @@ const Product = require('./Models/productSchema')
 
 mongoose.connect(process.env.CONNECTIONSTRING)
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views') );
+app.set('view engine', 'ejs')
 
-//CRUD
-app.get('/',async (req,res) => {
-  res.render('index')
+//Views
+app.get('/', async (req,res) => {
   const product = await Product.find();
-  res.status(200).json(product)
+  res.render('index', {product})
 })
+
+// //CRUD
+// app.get('/',async (req,res) => {
+//   const product = await Product.find();
+//   res.status(200).json(product)
+// })
 
 app.get('/:id',async (req,res) => {
   const product = await Product.findById(req.params.id);

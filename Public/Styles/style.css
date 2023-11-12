@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ul li {
+  list-style: none;
+}
+
+li .item-name{
+  font-size: 2rem;
+}
+
+li .item-price {
+  font-size: 1.3rem;
+}
