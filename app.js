@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'views') );
 app.set('view engine', 'ejs')
 
 //Views
-app.get('/', async (req,res) => {
+app.get('/home', async (req,res) => {
   const product = await Product.find();
   res.render('index', {product})
 })
@@ -26,6 +26,11 @@ app.get('/', async (req,res) => {
 //   res.status(200).json(product)
 // })
 
+app.get('/',async (req,res) => {
+  const product = await Product.find();
+  res.status(200).json(product)
+})
+
 app.get('/:id',async (req,res) => {
   const product = await Product.findById(req.params.id);
   res.status(200).json(product)
@@ -33,6 +38,20 @@ app.get('/:id',async (req,res) => {
 
 app.post('/', async (req,res) => {
   const product = await Product.create(req.body);
+  res.status(200).json(product)
+})
+
+app.put('/:id', async (req,res) => {
+  const product = await Product.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new:true}
+    )
+  res.status(200).json(product)
+})
+
+app.delete('/:id', async (req,res) => {
+  const product = await Product.findByIdAndDelete(req.params.id)
   res.status(200).json(product)
 })
 

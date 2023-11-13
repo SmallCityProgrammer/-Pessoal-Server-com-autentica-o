@@ -8,14 +8,27 @@
 </head>
 <body>
   <h1 class="Hello">Hello, World!</h1>
-  
+
   <ul class="items">
-    <% product.forEach(product => { %>
+    <% product.forEach((product) => { %>
       <li class="item-list">
         <strong class="item-name"><%= product.name %></strong>
         <p class="item-price">Price: <%= product.price %></p>
+        <p class="thing">ID:<%=product._id %></p>
+        <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
       </li>
     <% }); %>
   </ul>
+
+  <script>
+
+    const handleDelete = (productId) => {
+      const response = fetch(`/${productId}`, {
+        method: "DELETE"
+      })
+    }
+
+  </script>
+
 </body>
 </html>
