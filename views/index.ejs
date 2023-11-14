@@ -14,7 +14,7 @@
       <li class="item-list">
         <strong class="item-name"><%= product.name %></strong>
         <p class="item-price">Price: <%= product.price %></p>
-        <p class="thing">ID:<%=product._id %></p>
+        <p>Quantidade:<%=product.quantity%></p>
         <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
       </li>
     <% }); %>
