@@ -20,12 +20,6 @@ app.get('/home', async (req,res) => {
   res.render('index', {product})
 })
 
-// //CRUD
-// app.get('/',async (req,res) => {
-//   const product = await Product.find();
-//   res.status(200).json(product)
-// })
-
 app.get('/',async (req,res) => {
   const product = await Product.find();
   res.status(200).json(product)

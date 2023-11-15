@@ -7,13 +7,15 @@
   <title>CRUD de Produtos</title>
 </head>
 <body>
-  <h1 class="Hello">Hello, World!</h1>
+  <div class="navbar"><h1 class="Hello">Market!</h1></div>
+  
 
   <ul class="items">
     <% product.forEach((product) => { %>
+      <img class="image" src="<%= product.image %>">
       <li class="item-list">
         <strong class="item-name"><%= product.name %></strong>
-        <p class="item-price">Price: <%= product.price %></p>
+        <p class="item-price">Preço: <%= product.price %></p>
         <p>Quantidade:<%=product.quantity%></p>
         <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
       </li>
@@ -26,6 +28,7 @@
       const response = fetch(`/${productId}`, {
         method: "DELETE"
       })
+      window.location.href = "/home"
     }
 
   </script>
