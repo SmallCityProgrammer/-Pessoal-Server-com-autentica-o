@@ -45,13 +45,27 @@
       window.location.href = "/home"
     }
 
-    const handleNew = (data) => {
-      data.json();
-      const response = fetch("/", {
-        method: "POST"
-      })
-      window.location.href = "/home"
-    }
+    document.getElementById("productForm").addEventListener('submit', async function() {
+        const nome = document.querySelector("#nameInput");
+        const preço = document.querySelector("#priceInput");
+        const quantidade = document.querySelector("quantityInput");
+        try {
+          const response = await fetch('/', {method: 'POST', headers:{
+            'Content-type':'application/json'
+          },
+          body:JSON.stringify({nome, preço, quantidade})
+        })
+  
+  
+        } catch (error) {
+          console.log(error)
+        }
+        
+  
+        window.location.href = "/home"
+      }
+    )
+
 
   </script>
 
