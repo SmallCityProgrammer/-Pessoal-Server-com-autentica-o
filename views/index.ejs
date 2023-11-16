@@ -15,6 +15,17 @@
   
 
   <ul class="items">
+    <div>
+      <form action="POST">
+      
+        <input type="text" placeholder="nome">
+        <input type="text" placeholder="preço">
+        <input type="text" placeholder="quantidade">
+        <button onclick="handleNew()">Adicionar</button>
+      </form>
+
+    </div>
+
     <% product.forEach((product) => { %>
       <img class="image" src="<%= product.image %>">
       <li class="item-list">
