@@ -16,12 +16,11 @@
 
   <ul class="items">
     <div>
-      <form action="POST">
-      
-        <input type="text" placeholder="nome">
-        <input type="text" placeholder="preço">
-        <input type="text" placeholder="quantidade">
-        <button onclick="handleNew()">Adicionar</button>
+      <form id="productForm">
+        <input type="text" id="nameInput" placeholder="nome">
+        <input type="text" id="priceInput" placeholder="preço">
+        <input type="text" id="quantityInput" placeholder="quantidade">
+        <button type="submit">Adicionar</button>
       </form>
 
     </div>
@@ -42,6 +41,14 @@
     const handleDelete = (productId) => {
       const response = fetch(`/${productId}`, {
         method: "DELETE"
+      })
+      window.location.href = "/home"
+    }
+
+    const handleNew = (data) => {
+      data.json();
+      const response = fetch("/", {
+        method: "POST"
       })
       window.location.href = "/home"
     }
