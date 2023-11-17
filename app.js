@@ -50,5 +50,5 @@ app.delete('/:id', async (req,res) => {
 })
 
 app.listen(port, () => {
-  console.log('Funcionando! na port' + ' http://localhost:3000')
+  console.log('Funcionando! na port' + ' http://localhost:3000/home')
 })

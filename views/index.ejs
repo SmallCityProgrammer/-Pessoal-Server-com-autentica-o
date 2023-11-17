@@ -20,6 +20,7 @@
         <input type="text" id="nameInput" placeholder="nome">
         <input type="text" id="priceInput" placeholder="preço">
         <input type="text" id="quantityInput" placeholder="quantidade">
+        <input type="text" id="imgInput" placeholder="image">
         <button type="submit">Adicionar</button>
       </form>
 
@@ -29,7 +30,7 @@
       <img class="image" src="<%= product.image %>">
       <li class="item-list">
         <strong class="item-name"><%= product.name %></strong>
-        <p class="item-price">Preço: <%= product.price %></p>
+        <p class="item-price">Preço: <%= product.price %>$</p>
         <p>Quantidade:<%=product.quantity%></p>
         <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
       </li>
@@ -45,22 +46,25 @@
       window.location.href = "/home"
     }
 
-    document.getElementById("productForm").addEventListener('submit', async function() {
-        const nome = document.querySelector("#nameInput");
-        const preço = document.querySelector("#priceInput");
-        const quantidade = document.querySelector("quantityInput");
+    document.getElementById("productForm").addEventListener('submit', async function(event) {
+      event.preventDefault()
+
+        const name = document.querySelector("#nameInput").value;
+        const price = document.querySelector("#priceInput").value;
+        const quantity = document.querySelector("#quantityInput").value;
+        const image = document.querySelector("#imgInput").value;
         try {
           const response = await fetch('/', {method: 'POST', headers:{
             'Content-type':'application/json'
           },
-          body:JSON.stringify({nome, preço, quantidade})
+          body:JSON.stringify({name, price, quantity, image})
         })
   
   
         } catch (error) {
           console.log(error)
         }
-        
+
   
         window.location.href = "/home"
       }
