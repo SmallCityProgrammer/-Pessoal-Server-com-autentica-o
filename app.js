@@ -24,36 +24,12 @@ app.get('/home', async (req,res) => {
   res.render('index', {product})
 })
 
-app.get('/',async (req,res) => {
-  const product = await Product.find();
-  res.status(200).json(product)
-})
-
-app.get('/:id',async (req,res) => {
-  const product = await Product.findById(req.params.id);
-  res.status(200).json(product)
-})
-
 app.use('/', indexRoute);
 
 // app.post('/', authService.authorize , async (req,res) => {
 //   const product = await Product.create(req.body);
 //   res.status(200).redirect('/home')
 // })
-
-app.put('/:id', async (req,res) => {
-  const product = await Product.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {new:true}
-    )
-  res.status(200).json(product)
-})
-
-app.delete('/:id', async (req,res) => {
-  const product = await Product.findByIdAndDelete(req.params.id)
-  res.status(200).json(product)
-})
 
 app.listen(port, () => {
   console.log('Funcionando! na port' + ' http://localhost:3000/home')

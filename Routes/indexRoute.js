@@ -3,6 +3,7 @@ const router = express.Router();
 const homeController = require('../Controllers/homeController')
 
 router.get('/', homeController.get)
+router.get('/:id', homeController.getById)
 router.post('/', homeController.post)
 router.put('/:id', homeController.put)
 router.delete('/:id', homeController.delete)
