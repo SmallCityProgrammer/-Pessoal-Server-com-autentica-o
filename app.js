@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const Product = require('./Models/productSchema');
 const authService = require('./Service/authService');
 const router = express.Router();
-const homeController = require('./Controllers/homeController')
+const indexRoute = require('./Routes/indexRoute')
 
 mongoose.connect(process.env.CONNECTIONSTRING)
 app.use(express.json());
@@ -34,7 +34,7 @@ app.get('/:id',async (req,res) => {
   res.status(200).json(product)
 })
 
-app.use('/', homeController.post);
+app.use('/', indexRoute);
 
 // app.post('/', authService.authorize , async (req,res) => {
 //   const product = await Product.create(req.body);
