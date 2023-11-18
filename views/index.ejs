@@ -52,6 +52,17 @@
       window.location.href = "/home"
     }
 
+    const handlePut = () => {
+      const nameInput = document.querySelector('.itemName').value;
+
+      if(prompt){
+        const response = fetch(`/${productId}`, {
+        method:"PUT"
+      })
+      window.location.href = "/home"
+      }
+    }
+
  </script>
 
 </body>

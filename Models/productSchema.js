@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
   image:{
     required:true,
-    type:[String, "Coloque uma imagem"]
+    type:[String, "Coloque uma imagem"],
+    default:"https://www.svgrepo.com/show/3868/groceries.svg"
   },
   quantity:{
     required:true,

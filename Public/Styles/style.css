@@ -23,16 +23,6 @@ body {
   justify-content: center;
 }
 
-.productForm 
-.nameInput,
-.quantityInput,
-.priceInput,
-.imgInput{
-  height: 3rem;
-  border: none;
-  border-radius: 10rem;
-}
-
 .adicionar{
   border: none;
   width: 5rem;
@@ -46,6 +36,17 @@ body {
   background-color: #fff;
   color: #000;
   transition: .3s;
+}
+
+.productForm 
+.nameInput,
+.quantityInput,
+.priceInput,
+.imgInput{
+  height: 3rem;
+  border: none;
+  border-radius: 10rem;
+  text-align: center;
 }
 
 .productForm 
@@ -70,15 +71,20 @@ li{
 }
 
 .item-name{
-  background-color: #fff;
+  color: #fff;
+  font-weight: bold;
 }
 
+
 .item {
-  width: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 15rem;
   margin: .5rem;
   border: 5px solid transparent;
-  border-image-source: linear-gradient(#1c8cfb	
-  , #c9f0d3);
+  border-image-source: linear-gradient(#1c8cfb, #c9f0d3);
   border-image-slice: 1;
 }
 
