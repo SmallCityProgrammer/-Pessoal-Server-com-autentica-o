@@ -5,8 +5,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const mongoose = require('mongoose');
-const Product = require('./Models/productSchema')
-const authService = require('./Service/authService')
+const Product = require('./Models/productSchema');
+const authService = require('./Service/authService');
+const router = express.Router();
+const homeController = require('./Controllers/homeController')
 
 mongoose.connect(process.env.CONNECTIONSTRING)
 app.use(express.json());
@@ -32,10 +34,12 @@ app.get('/:id',async (req,res) => {
   res.status(200).json(product)
 })
 
-app.post('/', authService.authorize , async (req,res) => {
-  const product = await Product.create(req.body);
-  res.status(200).redirect('/home')
-})
+app.use('/', homeController.post);
+
+// app.post('/', authService.authorize , async (req,res) => {
+//   const product = await Product.create(req.body);
+//   res.status(200).redirect('/home')
+// })
 
 app.put('/:id', async (req,res) => {
   const product = await Product.findByIdAndUpdate(
