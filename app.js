@@ -1,6 +1,5 @@
 require('dotenv').config();
 const path = require('path');
-
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -25,11 +24,6 @@ app.get('/home', async (req,res) => {
 })
 
 app.use('/', indexRoute);
-
-// app.post('/', authService.authorize , async (req,res) => {
-//   const product = await Product.create(req.body);
-//   res.status(200).redirect('/home')
-// })
 
 app.listen(port, () => {
   console.log('Funcionando! na port' + ' http://localhost:3000/home')
