@@ -16,11 +16,11 @@
 
   <ul class="items">
     <div>
-      <form id="productForm">
-        <input type="text" id="nameInput" placeholder="nome">
-        <input type="text" id="priceInput" placeholder="preço">
-        <input type="text" id="quantityInput" placeholder="quantidade">
-        <input type="text" id="imgInput" placeholder="image">
+      <form action="/" method="POST" id="productForm">
+        <input name="name" type="text" id="nameInput" placeholder="nome">
+        <input name="price" type="text" id="priceInput" placeholder="preço">
+        <input name="quantity" type="text" id="quantityInput" placeholder="quantidade">
+        <input name="image" type="text" id="imgInput" placeholder="image">
         <button type="submit">Adicionar</button>
       </form>
 
@@ -46,32 +46,7 @@
       window.location.href = "/home"
     }
 
-    document.getElementById("productForm").addEventListener('submit', async function(event) {
-      event.preventDefault()
-
-        const name = document.querySelector("#nameInput").value;
-        const price = document.querySelector("#priceInput").value;
-        const quantity = document.querySelector("#quantityInput").value;
-        const image = document.querySelector("#imgInput").value;
-        try {
-          const response = await fetch('/', {method: 'POST', headers:{
-            'Content-type':'application/json'
-          },
-          body:JSON.stringify({name, price, quantity, image})
-        })
-  
-  
-        } catch (error) {
-          console.log(error)
-        }
-
-  
-        window.location.href = "/home"
-      }
-    )
-
-
-  </script>
+ </script>
 
 </body>
 </html>

@@ -4,42 +4,6 @@
   box-sizing: border-box;
 }
 
-body{
-  background-color: 	#d9ce95;
-}
-
-.navbar {
-  background-color:	#ca9c67;
-  color:#000;
-  height: 5rem;
-}
-
-.search {
-  height: 2rem;
-}
-
-h1 {
-  text-align: center;
-}
-
-.items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .image {
   height: 6rem;
-}
-
-ul li {
-  list-style: none;
-}
-
-li .item-name{
-  font-size: 1.7rem;
-}
-
-li .item-price {
-  font-size: 1.3rem;
 }
