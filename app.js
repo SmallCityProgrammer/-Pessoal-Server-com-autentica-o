@@ -5,8 +5,6 @@ const app = express();
 const port = 3000;
 const mongoose = require('mongoose');
 const Product = require('./Models/productSchema');
-const authService = require('./Service/authService');
-const router = express.Router();
 const indexRoute = require('./Routes/indexRoute')
 
 mongoose.connect(process.env.CONNECTIONSTRING)

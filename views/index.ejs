@@ -31,11 +31,11 @@
       <li class="item">
       <img class="image" src="<%= product.image %>" />
       <br>
-        <strong class="item-name"><%= product.name %></strong>
+        <h4 class="item-name"><%= product.name %></h4>
         <p class="item-price">Preço: <%= product.price %>$</p>
         <p>Quantidade:<%=product.quantity%></p>
         <div class="buttons">
-          <button onclick="handlePut('<%= product._id%>')" class="put">Atualizar</button>
+          <button onclick="handlePut('<%= product.name && product._id %>')" class="put">Atualizar</button>
           <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
         </div>
         
@@ -44,13 +44,28 @@
   </ul>
 
   <script>
-
   const handleDelete = (productId) => {
     const response = fetch(`/${productId}`, {
       method: "DELETE"
     })
     window.location.href = "/home"
   }
+
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  const h4 = document.querySelector('.item-name');
+
+  const handlePut = (productId) => {
+    const response = fetch(`/${productId}`, {
+      method: "PUT",
+      body:JSON.stringify({name:nameInput}),
+         headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    window.location.href = "/home"
+  }
+
  </script>
 
 </body>
