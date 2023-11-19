@@ -35,7 +35,7 @@
         <p class="item-price">Preço: <%= product.price %>$</p>
         <p>Quantidade:<%=product.quantity%></p>
         <div class="buttons">
-          <button onclick="hanglePut('<%= product._id%>')" class="put">Atualizar</button>
+          <button onclick="handlePut('<%= product._id%>')" class="put">Atualizar</button>
           <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
         </div>
         
@@ -45,24 +45,12 @@
 
   <script>
 
-    const handleDelete = (productId) => {
-      const response = fetch(`/${productId}`, {
-        method: "DELETE"
-      })
-      window.location.href = "/home"
-    }
-
-    const handlePut = () => {
-      const nameInput = document.querySelector('.itemName').value;
-
-      if(prompt){
-        const response = fetch(`/${productId}`, {
-        method:"PUT"
-      })
-      window.location.href = "/home"
-      }
-    }
-
+  const handleDelete = (productId) => {
+    const response = fetch(`/${productId}`, {
+      method: "DELETE"
+    })
+    window.location.href = "/home"
+  }
  </script>
 
 </body>
