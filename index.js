@@ -1,19 +1,11 @@
 require('dotenv').config();
-const path = require('path');
-const express = require('express');
-const app = express();
+const app = require('./app');
 const port = 3000;
 const mongoose = require('mongoose');
 const Product = require('./Models/productSchema');
 const indexRoute = require('./Routes/indexRoute')
 
-mongoose.connect('mongodb+srv://smallcityprogrammer:nM5TB1LgjUvjtLPO@cluster0.gjd9g7t.mongodb.net/?retryWrites=true&w=majority')
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({extended:true}))
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs')
+mongoose.connect(process.env.CONNECTIONSTRING)
 
 //Views
 app.get('/home', async (req,res) => {
@@ -22,7 +14,6 @@ app.get('/home', async (req,res) => {
 })
 
 app.use('/', indexRoute);
-
 
 app.listen(port, () => {
   console.log('Funcionando! na port' + ' http://localhost:3000/home')
