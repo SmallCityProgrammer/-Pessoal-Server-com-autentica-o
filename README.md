@@ -59,7 +59,7 @@ node index.js
 - Node.js
 - Express.js
 - MongoDB (Mongoose)
-- Json Web Token
+- JWT
 - HTML/EJS
 - CSS
 
