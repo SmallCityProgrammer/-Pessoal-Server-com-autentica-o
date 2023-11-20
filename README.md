@@ -58,6 +58,7 @@ node app.js
 - Node.js
 - Express.js
 - MongoDB (Mongoose)
+- Json Web Token
 - HTML/EJS
 - CSS
 
@@ -67,12 +68,8 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request 
 
 ## Autor
 
-Seu Nome - [Seu GitHub](https://github.com/seu-usuario)
+Eliezer - [GitHub](https://github.com/SmallCityProgrammer)
 
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-Por favor, substitua "Seu Nome", "Seu GitHub" e adicione quaisquer outras informações relevantes sobre o projeto ou seu funcionamento específico. Esta documentação é um exemplo genérico e pode ser expandida ou modificada conforme necessário para se adequar ao seu projeto.
