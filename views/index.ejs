@@ -23,19 +23,34 @@
         <input name="image" type="text" class="imgInput" placeholder="image">
         <button class="adicionar" type="submit">Adicionar</button>
       </form>
-
     </div>
 
+
+
     <ul class="items">
+      <div style="display:none" id="change-form" class="change-form">
+
+      <form action="/" method="PUT">
+        <p placeholder="NovoNome">Novo nome</p>
+        <input type="text" placeholder="Nome" name="name">
+        <p placeholder="NovoNome">Novo preço</p>
+        <input type="text" placeholder="Preço" name="price">
+        <p placeholder="NovoNome">Nova quantidade</p>
+        <input type="text" placeholder="Quantidade" name="quantity"><br>
+        <input type="submit">
+
+      </form>
+    
+    </div>
     <% product.forEach((product) => { %>
       <li class="item">
       <img class="image" src="<%= product.image %>" />
       <br>
         <h4 class="item-name"><%= product.name %></h4>
         <p class="item-price">Preço: <%= product.price %>$</p>
-        <p>Quantidade:<%=product.quantity%></p>
+        <p class="item-quantity">Quantidade:<%=product.quantity%></p>
         <div class="buttons">
-          <button onclick="handlePut('<%= product.name && product._id %>')" class="put">Atualizar</button>
+          <button onclick="handlePut('<%= product._id %>')" class="put">Atualizar</button>
           <button onclick="handleDelete('<%= product._id %>')" class="delete">Excluir</button>
         </div>
         
@@ -51,19 +66,49 @@
     window.location.href = "/home"
   }
 
-  const nameInput = document.createElement('input');
-  nameInput.type = 'text';
-  const h4 = document.querySelector('.item-name');
+  
 
-  const handlePut = (productId) => {
-    const response = fetch(`/${productId}`, {
+  const editName = async (productId) => {
+  const change = document.querySelector('#change-form');
+  change.style.display = "block"
+
+  const novoNome = document.createElement('form'); // Change div to form element
+  newName.appendChild(novoNome);
+
+    const updatedName = novoNome2.value;
+
+    try {
+      const response = await fetch(`/${productId}`, {
+        method: "PUT",
+        body: JSON.stringify({ name: updatedName }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update');
+      }
+      
+      // Handle successful update if needed
+    } catch (error) {
+      console.error('Error updating:', error);
+    }
+  }
+
+  const handlePut = async (productId) => {
+    editName(productId)
+    const response = await fetch(`/${productId}`, {
       method: "PUT",
-      body:JSON.stringify({name:nameInput}),
-         headers: {
-        'Content-Type': 'application/json'
+      body:JSON.stringify({
+        quantity:88,
+        price:155
+      }),
+        headers: {
+          'Content-Type': 'application/json'
       },
     })
-    window.location.href = "/home"
+    // window.location.href = "/home"
   }
 
  </script>
