@@ -18,10 +18,11 @@ app.set('view engine', 'ejs')
 //Views
 app.get('/home', async (req,res) => {
   const product = await Product.find();
-  res.render('index.ejs', {product})
+  res.render('index', {product})
 })
 
 app.use('/', indexRoute);
+
 
 app.listen(port, () => {
   console.log('Funcionando! na port' + ' http://localhost:3000/home')
