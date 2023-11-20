@@ -37,6 +37,7 @@
         <p placeholder="NovoNome">Nova quantidade</p>
         <input type="text" id="newQuantity" placeholder="Quantidade" name="quantity"><br>
         <input type="submit" id="update-btn">
+        <button id="closeBtn">Close</button>
       </form>
       </div>
 
@@ -56,59 +57,65 @@
     <% }); %>
   </ul>
 
-  <script>
-    let currentProductId; // To store the current productId
+<script>
+let currentProductId; // Inicializa o valor do product._id
+
+const handleDelete = async (productId) => {
+try {
+  const response = await fetch(`/${productId}`, {
+    method: "DELETE"
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to delete');
+  }
   
-    const handleDelete = async (productId) => {
-      try {
-        const response = await fetch(`/${productId}`, {
-          method: "DELETE"
-        });
+  window.location.href = "/home";
+} catch (error) {
+  console.error('Error deleting:', error);
+}
+};
+
+const showEditForm = async (productId) => {
+  currentProductId = productId; // Store the product._id
+  const changeForm = document.getElementById('change-form');
+  changeForm.style.display = 'block';
+
   
-        if (!response.ok) {
-          throw new Error('Failed to delete');
-        }
-        
-        window.location.href = "/home";
-      } catch (error) {
-        console.error('Error deleting:', error);
-      }
-    };
-  
-    const showEditForm = async (productId) => {
-      currentProductId = productId; // Store the current productId
-      document.getElementById('change-form').style.display = 'block';
-    };
-  
-    const submit = document.querySelector('#update-btn');
-    submit.addEventListener('click', async (event) => {
-      event.preventDefault(); // Prevent default form submission
-  
-      const newName = document.querySelector('#newName').value;
-      const newPrice = document.querySelector('#newPrice').value;
-      const newQuantity = document.querySelector('#newQuantity').value;
-  
-      try {
-        const response = await fetch(`/${currentProductId}`, {
-          method: "PUT",
-          body: JSON.stringify({ name: newName, price: newPrice, quantity: newQuantity }),
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        });
-  
-        if (!response.ok) {
-          throw new Error('Failed to update');
-        }
-        
-        // Handle successful update if needed
-        // For example, you might redirect or refresh the page:
-        window.location.href = "/home";
-      } catch (error) {
-        console.error('Error updating:', error);
-      }
-    });
-  </script>
+  const closeButton = document.getElementById('#closeBtn')
+  closeButton.addEventListener('click', () => {
+  changeForm.style.display = 'none';
+});
+};
+
+
+const submit = document.querySelector('#update-btn');
+submit.addEventListener('click', async (event) => {
+event.preventDefault();
+
+const newName = document.querySelector('#newName').value;
+const newPrice = document.querySelector('#newPrice').value;
+const newQuantity = document.querySelector('#newQuantity').value;
+
+try {
+  const response = await fetch(`/${currentProductId}`, {
+    method: "PUT",
+    body: JSON.stringify({ name: newName, price: newPrice, quantity: newQuantity }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to update');
+  }
+
+  window.location.href = "/home";
+} catch (error) {
+  console.error('Error updating:', error);
+}
+});
+</script>
 
 </body>
 </html>
