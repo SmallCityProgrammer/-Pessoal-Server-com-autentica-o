@@ -12,13 +12,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended:true}))
 
-app.set('views', './views');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
 //Views
 app.get('/home', async (req,res) => {
   const product = await Product.find();
-  res.render('index', {product})
+  res.render('index.ejs', {product})
 })
 
 app.use('/', indexRoute);
