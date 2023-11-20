@@ -10,11 +10,8 @@
   <div class="navbar">
     <h1 class="logo">Market!</h1>
     </form>
- 
   </div>
-  
 
-  
     <div>
       <form action="/" method="POST" class="productForm">
         <input name="name" type="text" class="nameInput" placeholder="nome">
@@ -24,8 +21,6 @@
         <button class="adicionar" type="submit">Adicionar</button>
       </form>
     </div>
-
-
 
     <ul class="items">
       <div style="display:none" id="change-form" class="change-form">
@@ -96,7 +91,7 @@ const newName = document.querySelector('#newName').value;
 const newPrice = document.querySelector('#newPrice').value;
 const newQuantity = document.querySelector('#newQuantity').value;
 
-const updatedFields = {}; // Object to store updated fields
+const updatedFields = {};
 
   if (newName.trim() !== '') {
     updatedFields.name = newName;
