@@ -42,14 +42,14 @@ CONNECTIONSTRING=SUA_CONEXAO_DO_MONGODB
 1. Inicie o servidor:
 
 ```bash
-node app.js
+node index.js
 ```
 
 2. Acesse o aplicativo no navegador em [http://localhost:3000/home](http://localhost:3000/home)
 
 ## Estrutura do Projeto
 
-- **app.js:** Arquivo principal do servidor Express.
+- **index.js:** Arquivo principal do servidor Express.
 - **Models/productSchema.js:** Define o esquema do produto no MongoDB.
 - **Routes/indexRoute.js:** Rotas para o aplicativo.
 - **views/index.ejs:** Página principal que exibe e interage com os produtos.
