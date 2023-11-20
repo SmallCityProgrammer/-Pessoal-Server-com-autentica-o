@@ -4,6 +4,7 @@
 <br>
 
 # Market App
+<img src="https://i.imgur.com/136l0ed.png">
 
 Este é um aplicativo de mercado simples construído com Node.js, Express e MongoDB para gerenciar produtos. 
 
