@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const Product = require('./Models/productSchema');
 const indexRoute = require('./Routes/indexRoute')
 
-mongoose.connect(process.env.CONNECTIONSTRING)
+mongoose.connect('mongodb+srv://smallcityprogrammer:nM5TB1LgjUvjtLPO@cluster0.gjd9g7t.mongodb.net/?retryWrites=true&w=majority')
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended:true}))
