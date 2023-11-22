@@ -61,7 +61,7 @@ try {
     throw new Error('Failed to update');
   }
 
-  window.location.href = "/home";
+  window.location.href = "/";
 } catch (error) {
   console.error('Error updating:', error);
 }
