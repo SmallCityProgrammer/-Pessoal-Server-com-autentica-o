@@ -8,7 +8,7 @@ const indexRoute = require('./Routes/indexRoute')
 mongoose.connect(process.env.CONNECTIONSTRING)
 
 //Views
-app.get('/home', async (req,res) => {
+app.get('/', async (req,res) => {
   const product = await Product.find();
   res.render('index', {product})
 })
@@ -16,5 +16,5 @@ app.get('/home', async (req,res) => {
 app.use('/', indexRoute);
 
 app.listen(port, () => {
-  console.log('Funcionando! na port' + ' http://localhost:3000/home')
+  console.log('Funcionando! na port' + ' http://localhost:3000/')
 })
