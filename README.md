@@ -5,6 +5,7 @@
 
 # Market App
 <img src="https://i.imgur.com/136l0ed.png">
+<a href="https://projeto-pessoal-crud-autenticacao.vercel.app/">LINK DO PROJETO<a/><br><br>
 
 Este é um aplicativo de mercado simples construído com Node.js, Express e MongoDB para gerenciar produtos. 
 
