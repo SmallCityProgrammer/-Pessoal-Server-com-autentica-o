@@ -10,7 +10,7 @@ try {
     throw new Error('Failed to delete');
   }
   
-  window.location.href = "/home";
+  window.location.href = "/";
 } catch (error) {
   console.error('Error deleting:', error);
 }
