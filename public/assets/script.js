@@ -29,6 +29,7 @@ const showEditForm = async (productId) => {
 
 
 const submit = document.querySelector('#update-btn');
+
 submit.addEventListener('click', async (event) => {
 event.preventDefault();
 
