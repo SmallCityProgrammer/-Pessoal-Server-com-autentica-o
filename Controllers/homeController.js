@@ -3,7 +3,7 @@ const Product = require("../Models/productSchema")
 
 exports.post = ('/', async (req,res) => {
   const product = await Product.create(req.body);
-  res.status(200).redirect('/home')
+  res.status(200).redirect('/')
 })
 
 exports.get = ('/', async (req,res) => {
