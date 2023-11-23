@@ -7,6 +7,6 @@ router.get('/', homeController.get)
 router.get('/:id', homeController.getById)
 router.post('/', homeController.post)
 router.put('/:id', homeController.put)
-router.delete('/:id',authService.authorize, homeController.delete)
+router.delete('/:id', homeController.delete)
 
 module.exports = router;
