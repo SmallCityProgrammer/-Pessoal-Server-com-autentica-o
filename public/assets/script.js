@@ -1,3 +1,4 @@
+
 let currentProductId; // Inicializa o valor do product._id
 
 const handleDelete = async (productId) => {
@@ -29,7 +30,6 @@ const showEditForm = async (productId) => {
 
 
 const submit = document.querySelector('#update-btn');
-
 submit.addEventListener('click', async (event) => {
 event.preventDefault();
 

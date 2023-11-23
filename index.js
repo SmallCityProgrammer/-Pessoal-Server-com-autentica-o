@@ -7,12 +7,6 @@ const indexRoute = require('./Routes/indexRoute')
 
 mongoose.connect(process.env.CONNECTIONSTRING)
 
-//Views
-app.get('/', async (req,res) => {
-  const product = await Product.find();
-  res.render('index', {product})
-})
-
 app.use('/', indexRoute);
 
 app.listen(port, () => {

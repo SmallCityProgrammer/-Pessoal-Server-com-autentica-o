@@ -1,4 +1,3 @@
-const express = require("express");
 const Product = require("../Models/productSchema")
 
 exports.post = ('/', async (req,res) => {
@@ -7,8 +6,8 @@ exports.post = ('/', async (req,res) => {
 })
 
 exports.get = ('/', async (req,res) => {
-  const product = await Product.find();
-  res.status(200).json(product)
+  const product = await Product.find({});
+  res.render('index', {product})
 })
 
 exports.getById = ('/:id', async (req,res) => {
